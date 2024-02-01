@@ -1,0 +1,16 @@
+<mat-card id={{user.id}} class="user-card">
+    <mat-card-content class="user-card-content">
+        <h3 class="user-card-content-title"> {{user.username|uppercase}}</h3>
+        <div>
+            <p><b>mail:</b> {{user.email}}</p>
+            <p><b>adress:</b> {{user.address.street}}</p>
+            <p><b>phone:</b> {{user.phone}}</p>
+            <p><b>company:</b> {{user.company.name}}</p>
+        </div>
+        <mat-card-actions class="user-card-content-button">
+            <button mat-raised-button color="warn" (click)="onDeleteUser()">Удалить</button>
+            <button mat-raised-button color="primary" (click)="onEditUser()">Редактировать</button>
+        </mat-card-actions>
+    </mat-card-content>
+
+</mat-card>

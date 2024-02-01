@@ -1,0 +1,23 @@
+.create-edit-user {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    padding        : 20px;
+    width          : 500px;
+    border         : radius 5px;
+
+    &-form {
+        display        : flex;
+        flex-direction : column;
+        align-items    : center;
+        justify-content: center;
+        width          : 500px;
+        padding-top    : 50px;
+    }
+}
+
+mat-form-field {
+    width : 70%;
+    cursor: pointer;
+}
