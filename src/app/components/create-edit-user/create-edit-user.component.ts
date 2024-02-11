@@ -44,6 +44,7 @@ export class CreateEditUserComponent implements OnInit {
       }),
     });
     this.isEdit = data.isEdit;
+    console.log("Get users isEdit")
   }
 
   //инициализация компоненты как типо useEffect
@@ -61,11 +62,6 @@ export class CreateEditUserComponent implements OnInit {
   //Добавление и изменение юзера
   onCreateEditUser() {
     if (this.userForm.valid) {
-      // if (this.data.isEdit) {
-      //   this.dialogRef.close(this.userForm.value)
-      // }
-      console.log(this.userForm.value);
-
       this.dialogRef.close(this.userForm.value)
     }
   }

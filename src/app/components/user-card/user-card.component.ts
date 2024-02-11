@@ -25,4 +25,6 @@ export class UserCardComponent {
   onEditUser() {
     this.editUser.emit(this.user);
   }
+
 }
+console.log("Get users card")

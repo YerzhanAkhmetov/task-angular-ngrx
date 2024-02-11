@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../models/user.model';
+import { Observable, map, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-    //Сервис для временного хранения дданых users ЛОКАЛЬНЫЙ
-    public users: IUser[] = [];  //6 task
-    //Записываем пользователей
+    public users: IUser[] = [];
+
     setUsers(users: IUser[]) {
         this.users = users;
     }
-    //Удаляем пользоватля из локального стэйта
-    deleteUser(id: number) {
+
+    deleteUser(id: number): Observable<void> {
         this.users = this.users.filter(user => user.id !== id);
+        return of(null).pipe(
+            map(() => { })
+        );
     }
-    //Создаем пользователя
-    createUser(newUser: IUser): IUser {
+
+    createUser(newUser: IUser): Observable<IUser> {
         let maxUserId = Math.max(...this.users.map(user => user.id), 0);
         const user: IUser = {
             id: ++maxUserId,
@@ -40,10 +43,11 @@ export class UsersService {
             }
         }
         this.users = [...this.users, user];
-        return user
+        return of(user);
     }
-    //Редактируем юзера
-    editUser(newUser: IUser) {
+
+    editUser(newUser: IUser): Observable<IUser> { // Возвращаем Observable<IUser> вместо Observable<void>
         this.users = this.users.map(user => (user.id === newUser.id ? newUser : user))
+        return of(newUser); // Возвращаем обновленного пользователя
     }
 }

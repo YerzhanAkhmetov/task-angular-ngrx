@@ -5,7 +5,7 @@ import { IUser } from '../models/user.model';
 @Injectable({
   providedIn: 'root',
 })
-export class LocalStargeService {
+export class LocalStorageService {
   // localStorage, недоступен во время выполнения на сервере 
   //чтобы избежать ошибки ERROR ReferenceError: localStorage is not defined 
   //Добавляем PLATFORM_ID
